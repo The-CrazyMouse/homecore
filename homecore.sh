@@ -62,7 +62,6 @@ if ! command -v zig >/dev/null 2>&1; then
 else
     # Get the installed Zig version
     INSTALLED_ZIG=$(zig version)
-	echo $INSTALLED_ZIG
     
     # Compare with REQUIRED_ZIG
 	if [ "$(printf '%s\n' "$REQUIRED_ZIG" "$INSTALLED_ZIG" | sort -V | head -n1)" != "$REQUIRED_ZIG" ]; then
