@@ -2,7 +2,7 @@ const std = @import("std");
 const stdin = std.io.getStdIn().reader();
 const stdout = std.io.getStdOut().writer();
 
-pub fn get_browser() []u8 {
+pub fn get_browser() ?[]u8 {
     try stdout.print("[1/7] Browser");
     try stdout.print("Please select one of the option bellow: \n", .{});
     try stdout.print("1 - Firefox");
@@ -25,3 +25,5 @@ pub fn get_browser() []u8 {
         else => null,
     }
 }
+
+pub fn check_browsers_installed() ?[][]8 {}
