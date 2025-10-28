@@ -64,11 +64,11 @@ else
     INSTALLED_ZIG=$(zig version)
     
     # Compare with REQUIRED_ZIG
-    if [ "$INSTALLED_ZIG" != "$REQUIRED_ZIG" ]; then
-        echo "[zig] version is outdated - updating..."
+	if [ "$(printf '%s\n' "$REQUIRED_ZIG" "$INSTALLED_ZIG" | sort -V | head -n1)" != "$REQUIRED_ZIG" ]; then
+		echo "[zig] version is outdated - updating..."
         sudo pacman -S --needed --noconfirm zig
     else
-        echo "zig is installed"  # Zig version is good
+        echo "[zig] is installed"  # Zig version is good
     fi
 fi
 
